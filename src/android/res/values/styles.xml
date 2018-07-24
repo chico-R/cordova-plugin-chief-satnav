@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--底部往上弹框-->
+    <style name="transparentFrameWindowStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/map_dialog_view_bg</item>
+        <!--<item name="android:windowEnterAnimation">@anim/map_dialog_in_anim</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/map_dialog_out_anim</item>-->
+    </style>
+    <style name="main_menu_animstyle">
+        <item name="android:windowEnterAnimation">@anim/map_dialog_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/map_dialog_out_anim</item>
+    </style>
+
+</resources>

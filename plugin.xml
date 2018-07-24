@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-chief-satnav" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Satnav</name>
+    <js-module name="Satnav" src="www/Satnav.js">
+        <clobbers target="cordova.Satnav" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="Satnav">
+                <param name="android-package" value="cordova.plugin.chief.satnav.Satnav" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+        <!--java-->
+        <source-file src="src/android/Satnav.java" target-dir="src/cordova/plugin/chief/satnav" />
+        <!-- anim-->
+        <source-file src="src/android/res/anim/map_dialog_out_anim.xml" target-dir="res/anim" />
+        <source-file src="src/android/res/anim/map_dialog_in_anim.xml" target-dir="res/anim" />
+        <!-- drawable-->
+        <source-file src="src/android/res/drawable/map_dialog_gray_bg.xml" target-dir="res/drawable" />
+        <source-file src="src/android/res/drawable/map_dialog_view_bg.xml" target-dir="res/drawable" />
+        <source-file src="src/android/res/drawable/map_dialog_white_bg.xml" target-dir="res/drawable" />
+        <!-- layout-->
+        <source-file src="src/android/res/layout/layout_view_dialog_map.xml" target-dir="res/layout" />
+        <!-- values-->
+        <source-file src="src/android/res/values/styles.xml" target-dir="res/values" />
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="Satnav">
+                <param name="ios-package" value="Satnav" />
+            </feature>
+        </config-file>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>iosamap</string>
+                <string>baidumap</string>
+            </array>
+        </config-file>
+        <header-file src="src/ios/Satnav.h" />
+        <source-file src="src/ios/Satnav.m" />
+        <header-file src="src/ios/TQLocationConverter.h" />
+        <source-file src="src/ios/TQLocationConverter.m" />
+    </platform>
+</plugin>
